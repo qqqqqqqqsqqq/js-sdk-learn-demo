@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { bitable, CurrencyCode, FieldType, ISingleSelectField, ICurrencyField, ICurrencyFieldMeta, IOpenCellValue, IOpenSingleSelect, FilterOperator } from '@lark-base-open/js-sdk';
 import { MetaItem } from './types';
+import {getCurrentUserInfo} from './searchUser';
 interface IListItem {
     id: number;
     name: string;
@@ -47,7 +48,7 @@ const RecentList: React.FC<ListProps> = ({ listData, fetchRecentData }) => {
             <span className="close" onClick={() => setShowModal(false)}>
               &times;
             </span>
-                        <h2>最近操作过的列表数据</h2>
+                        <h2>选择验收任务</h2>
                         <ul>
                             {listData.map(item => (
                                 <li key={Object.keys(item)[0]}>
@@ -57,11 +58,12 @@ const RecentList: React.FC<ListProps> = ({ listData, fetchRecentData }) => {
                                         onChange={() => handleCheckboxChange(Object.keys(item)[0])}
                                     />
 
-                                    {Object.values(item)[0].title} - 最后修改时间：{Object.values(item)[0].lastTime}
+                                    {Object.values(item)[0].title} - { Object.values(item)[0].description.length > 6 ? Object.values(item)[0].description.slice(0, 6)+ "..." :  Object.values(item)[0].description}
+                                    - 任务执行人：{Object.values(item)[0].tasker} {Object.values(item)[0].lastTime}
                                 </li>
                             ))}
                         </ul>
-                        <button onClick={handleSubmit}>提交</button>
+                        <button onClick={handleSubmit}>选择任务</button>
                     </div>
                 </div>
             )}
