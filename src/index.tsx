@@ -39,7 +39,6 @@ function LoadApp() {
     const [selectFieldId, setSelectFieldId] = useState<string>();
     const [currency, setCurrency] = useState<CurrencyCode>();
     const [titleFieldMetaList, setTitleList] = useState<(IRecord | undefined)[]>([])
-
     useEffect(() => {
         const fn = async () => {
             console.log('LoadApp component is mounted'); // 组件挂载时打印日志
@@ -182,10 +181,10 @@ function LoadApp() {
     return <div>
         <div style={{margin: 10}}>
             <SearchUser/>
-            {/*<Select style={{width: 120}} onSelect={setTitleList}*/}
-            {/*        options={formatTitleFieldMetaList(titleFieldMetaList)}/>*/}
+            <Select style={{width: 120}} onSelect={setTitleList}
+                    options={formatTitleFieldMetaList(titleFieldMetaList)}/>
         </div>
-        <List />
+        <List listData={formatTitleFieldMetaList(titleFieldMetaList)} fetchRecentData={fetchRecentData}/>
         {/*<div style={{margin: 10}}>*/}
         {/*    <div>Select Currency</div>*/}
         {/*    <Select options={CURRENCY} style={{width: 120}} onSelect={setCurrency}/>*/}
