@@ -6,8 +6,9 @@ export type MetaItem = {
 
         title: string;
         description: string;
-        acceptor: IOpenUser[];
         lastTime: string;
-        tasker: string;
+        tasker: IOpenUser[];
+        taskId: string;
+
     };
 };

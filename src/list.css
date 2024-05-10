@@ -1,0 +1,61 @@
+.tab-menu {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-item.active {
+    border-bottom-color: blue;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+.label {
+    display: block;
+    margin-bottom: 10px; /* 添加间距 */
+    font-weight: bold;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 100px;
+}
+
+.form-input {
+    margin-left: 6px;
+}
+
+.form-group label::after {
+    content: '*'; /* Add an asterisk after the label */
+    color: red; /* Optionally, change the color to red */
+    margin-left: 5px; /* Optionally, add some spacing */
+}
